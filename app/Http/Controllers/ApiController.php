@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Http;
 
 class ApiController extends Controller
 {
-    public function getMarsData(){
-        $response = Http::get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
+    public function getMarsData(Request $request){
+        $date = $request->input('date', now()->toDateString());
+
+        $response = Http::get("https://api.nasa.gov/planetary/apod?api_key=iONcSyga6mOqxCAoMHc4hzAc6U01jU21YanQ41hL&date=$date");
         if ($response->failed()) {
-            return response()->json(['error' => 'API request failed'], 500);
+            return response()->json(['error' => 'API request failed'], 200);
         }
         return view('welcome', ['data' => $response->json()]);
 
@@ -21,5 +23,6 @@ class ApiController extends Controller
     {
         return view('hero'); 
     }
+   
 
 }

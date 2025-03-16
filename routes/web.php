@@ -10,4 +10,8 @@ use App\Http\Controllers\ApiController;
 Route::get('/', [ApiController::class, 'ShowHeroPage']);
 
 // Serve the welcome view on a different route, e.g., /home
-Route::get('/home', [ApiController::class, 'GetMarsData']);
+Route::post('/home', [ApiController::class, 'GetMarsData'])->name('home');
+
+
+
+

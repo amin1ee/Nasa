@@ -55,9 +55,24 @@
             text-decoration: none;
             transition: background-color 0.3s;
             position: absolute;
-            bottom: 50px; 
+            bottom: 180px; 
             left: 50%;
             transform: translateX(-50%); 
+        }
+        .cta-button1 {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #FF6600;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            
+            bottom: 100px; 
+            position: absolute;
+            left: 0%;
+            transform: translateX(315%); 
         }
 
         .cta-button:hover {
@@ -76,10 +91,16 @@
             <h2>NASA Astronomy Picture of the Day</h2>
             <p>Discover the wonders of our universe through breathtaking images and explanations from NASA.</p>
         </div>
-
-       
+        
+        
         <a href="/home" class="cta-button">Explore The Photo</a>
     </div>
+    <form action="{{route('home')}}" method="POST">
+      @csrf
+      <input type="date" name="date" class="cta-button" value="{{ date('Y-m-d') }}" required>
+
+    <button type="submit" class="cta-button1">Get Your Picture</button>
+  </form>
 
 </body>
 </html>
