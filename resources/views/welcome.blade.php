@@ -33,14 +33,18 @@
     </style>
 </head>
 <body class="bg-black">
-
+    <button wire:click="export">
+        Download File
+    </button>
     <div class="min-h-screen flex flex-col justify-center items-center planet-container">
-        <!-- 3D Planet Effect -->
-        <div class="planet w-64 h-64 mb-8 flex justify-center items-center">
+        
+        <div class="planet w-72 h-72 mb-8 flex justify-center items-center">
+            <a href="{{ $data['url'] }}">
             <img src="{{ $data['url'] }}" alt="NASA Image" class="planet-img w-full h-full">
+        </a>
         </div>
 
-        <!-- Content Section -->
+
         <h1 class="text-white text-5xl font-extrabold text-center text-shadow mb-4">
             NASA Astronomy Picture of the Day
         </h1>
